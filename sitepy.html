@@ -1,0 +1,1517 @@
+<script src="/inc/js/common-min2.js" type="text/javascript"></script>
+
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    <div id="mouse_no" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    </div>
+    <html>
+
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>드러그인포 - 통합검색 :: sorafenib</title>
+        <link href="/css/txt.css" rel="stylesheet" type="text/css" />
+        <link href="/css/font.css" rel="stylesheet" type="text/css" />
+        <link href="styles/di-search2-0.0.6.css" rel="stylesheet" type="text/css" />
+        <link href="styles/slimbox.css" media="screen" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+            .scount {
+                color: #777;
+                font-size: 12px;
+                font-weight: normal;
+                margin-left: 10px;
+            }
+        </style>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-19054191-2']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="991">
+            <tr>
+                <td height="22" style="text-align:right;vertical-align:bottom;">
+                    <script type="text/javascript">
+                        function addStartPage() {
+                            var url = "http://www.druginfo.co.kr";
+                            var title = "드럭인포";
+                            if (document.all) {
+                                //시작페이지 설정.
+                                document.body.style.behavior = 'url(#default#homepage)';
+                                document.body.setHomePage(url);
+                            }
+                        }
+                    </script>
+                    <style type="text/css">
+                        a.top-site-link:link,
+                        a.top-site-link:active,
+                        a.top-site-link:visited,
+                        a.top-site-link:hover {
+                            color: #999999;
+                            background: transparent url(/search2/images/more.gif) no-repeat scroll 0 2px;
+                            font-family: 돋음, dotum, arial, sans-serif;
+                            font-size: 11px;
+                            font-weight: bold;
+                            padding-left: 9px;
+                            text-decoration: none;
+                        }
+
+                        td.top-word {
+                            color: #999999;
+                            font-family: 돋음, dotum, arial, sans-serif;
+                            font-size: 11px;
+                            font-weight: bold;
+                            padding-left: 9px;
+                            text-decoration: none;
+                        }
+                    </style>
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td align="left" height="22"><a class="top-site-link" href="javascript:addStartPage();"
+                                    style="cursor:hand;">드럭인포를 시작페이지로</a></td>
+                            <td class="top-word"><!--최근 회사 또는 병원내에서 갑자기 사이트가 느려졌을시에 저희 드럭인포에 문의주시기 바랍니다.--> </td>
+                            <td width="53"><a href="/login/loginform2.aspx"><img alt="로그인" height="14"
+                                        src="/img/m0_login.gif" width="53" /></a></td>
+                            <td width="52"><a href="/join/members_before.aspx"><img alt="회원가입" height="14"
+                                        src="/img/m0_joinus.gif" width="52" /></a></td>
+                            <td width="68"><a href="/pay/myContentList.aspx"><img alt="내컨텐츠함" height="14"
+                                        src="/img/m0_mycontents.gif" width="68" /></a></td>
+                            <td width="57"><a href="/mypage/question_insertForm.aspx"><img alt="contacts" height="14"
+                                        src="/img/m0_contactus.gif" width="57" /></a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" height="82">
+                    <script type="text/javascript">
+                        function overPlus() {
+                            display_Layer('plusBody', '');
+                        }
+
+                        function showsearch(id, name) {
+                            document.forms["searchForm"].searchType.value = id;
+
+                            if (id != "") {
+                                document.all['top_menu'].innerHTML = name;
+
+                                display_Layer('plusBody', '');
+                            }
+                        }
+
+                        function search_chk(oForm) {
+                            var tovalue = oForm.tofind.value;
+                            var searchType = oForm.searchType.value;
+
+                            if (tovalue.length == 0) {
+                                window.location = "/search/search_all.aspx?";
+
+                                return false;
+                            }
+
+                            if (tovalue.length < 2) {
+                                alert("2자이상의 단어를 입력해 주세요.");
+
+                                return false;
+                            }
+
+                            var special = "~!@#$%^&*=+'.[]{}\"";
+                            var specialForPro = "~!@#$^&*=+'[]{}\"";
+
+                            if ("searchTop0" == searchType ||
+                                "searchTop1" == searchType ||
+                                "searchTop2" == searchType ||
+                                "searchTop3" == searchType) {
+                                for (i = 0; i < specialForPro.length; i++) {
+                                    var sc = specialForPro.charAt(i);
+
+                                    if (tovalue.indexOf(sc, 0) != -1) {
+                                        alert("특수문자를 사용하실수 없습니다. " + sc + "를 삭제하신후 다시눌러주세요");
+
+                                        oForm.tofind.focus();
+
+                                        return false;
+                                    }
+                                }
+                            }
+                            else {
+                                for (i = 0; i < special.length; i++) {
+                                    var sc = special.charAt(i);
+
+                                    if (tovalue.indexOf(sc, 0) != -1) {
+                                        alert("특수문자를 사용하실수 없습니다. " + sc + "를 삭제하신후 다시눌러주세요");
+
+                                        oForm.tofind.focus();
+
+                                        return false;
+                                    }
+                                }
+                            }
+
+                            initSearchForm(oForm);
+
+                            return true;
+                        }
+
+                        function initSearchForm(searchForm) {
+                            var query = searchForm.tofind.value;
+                            var type = searchForm.searchType.value;
+
+                            switch (type) {
+                                case "searchTop0":
+                                    searchForm.action = "/search2/search.aspx?q=" + query;
+                                    break;
+                                case "searchTop1":
+                                    searchForm.action = "/search/search_all.aspx?tofind=" + query;
+                                    break;
+                                case "searchTop2":
+                                    searchForm.action = "/search/search_result.aspx?product=" + query;
+                                    break;
+                                case "searchTop3":
+                                    searchForm.action = "/search/search_ingredient_result.aspx?ingredient=" + query;
+                                    break;
+                                case "searchTop4":
+                                    searchForm.action = "/search/search_result.aspx?producer=" + query;
+                                    break;
+                                case "searchTop5":
+                                    searchForm.action = "/search/search_result.aspx?insure=" + query;
+                                    break;
+                                case "searchTop6":
+                                    searchForm.action = "/search/search_result.aspx?maincode=" + query;
+                                    break;
+                                case "searchTop7":
+                                    searchForm.action = "/search/search_result.aspx?hwname=" + query;
+                                    break;
+                                default:
+                                    searchForm.action = "/search/search_all.aspx?tofind=" + query;
+                                    break;
+                            }
+                        }
+
+                        function chkReset2(o, n) {
+                            if (n == 2) {
+                                o.style.backgroundImage = '';
+                            }
+
+                            openDrag();
+                        }
+                    </script>
+                    <table border="0" cellpadding="0" cellspacing="0" width="642">
+                        <tr>
+                            <td>
+                                <table border="0" cellpadding="0" cellspacing="0" width="642">
+                                    <tr>
+                                        <td valign="top" width="182"><a href="/"><img alt="BIT Druginfo" height="35"
+                                                    src="/img/logo.gif" width="182" /></a></td>
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="460">
+                                                <tr>
+                                                    <td>
+                                                        <form action="/search2/search.aspx" method="post"
+                                                            name="searchForm" onsubmit="return search_chk(this);"
+                                                            style="margin-bottom:0;">
+                                                            <input name="searchType" type="hidden" value="searchTop0" />
+                                                            <input name="lq" type="hidden" value="1" />
+                                                            <input name="anon" type="hidden" />
+                                                            <table border="0" cellpadding="0" cellspacing="0"
+                                                                width="460">
+                                                                <tr>
+                                                                    <td>
+                                                                        <table border="1" cellpadding="0"
+                                                                            cellspacing="5"
+                                                                            style="background-color:#0772e0;"
+                                                                            width="460">
+                                                                            <tr>
+                                                                                <td style="background-color:#FFFFFF;">
+                                                                                    <table border="0" cellpadding="0"
+                                                                                        cellspacing="0" width="420">
+                                                                                        <tr>
+                                                                                            <td width="7"> </td>
+                                                                                            <td onclick="javascript:overPlus()"
+                                                                                                style="padding-top:5px; cursor:hand; vertical-align:middle;"
+                                                                                                width="90"><span
+                                                                                                    id="top_menu">신통합검색</span>
+                                                                                            </td>
+                                                                                            <td onclick="javascript:overPlus()"
+                                                                                                style="padding-top:5px; cursor:hand;"
+                                                                                                valign="top" width="32">
+                                                                                                <img alt="" height="16"
+                                                                                                    src="/img/se_icon.gif"
+                                                                                                    width="32" /></td>
+                                                                                            <td
+                                                                                                style="vertical-align:top; padding-top:3px;">
+                                                                                                <input
+                                                                                                    autocomplete="off"
+                                                                                                    id="suggestKeyword"
+                                                                                                    name="tofind"
+                                                                                                    onfocus="chkReset2(this, 2)"
+                                                                                                    onfocusout="closeDrag();"
+                                                                                                    onkeydown=""
+                                                                                                    onkeyup="" size="30"
+                                                                                                    style="background:#FFFFFF;ime-mode:active; font-size:14px;font-family: 돋움;color: #000000;vertical-align:top; font-weight:bold; border: none;"
+                                                                                                    type="text" /></td>
+                                                                                            <div
+                                                                                                style="width:1px; height:1px;display:none">
+                                                                                                <iframe height="1px"
+                                                                                                    src="//cp.druginfo.co.kr/Avd/EBKS201506/AVD_24.html"
+                                                                                                    width="1px"></iframe>
+                                                                                            </div>
+                                                                                            <td width="10"> </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                    <div id="plusBody"
+                                                                                        style="display: none; position:absolute; margin:0 auto; z-index:100; border:1px solid #0772ED; background:#FFFFFF; width:120;">
+                                                                                        <table border="0"
+                                                                                            cellpadding="0"
+                                                                                            cellspacing="0"
+                                                                                            width="100%">
+                                                                                            <tr>
+                                                                                                <td id="searchTop0"
+                                                                                                    onclick="showsearch(this.id,'신통합검색')"
+                                                                                                    onmouseout="out(this.id)"
+                                                                                                    onmouseover="over(this.id)"
+                                                                                                    style="cursor:hand;"
+                                                                                                    valign="bottom"
+                                                                                                    width="95"> 신통합검색
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td id="searchTop1"
+                                                                                                    onclick="showsearch(this.id,'제품/성분(한영)')"
+                                                                                                    onmouseout="out(this.id)"
+                                                                                                    onmouseover="over(this.id)"
+                                                                                                    style="cursor:hand;"
+                                                                                                    valign="bottom"
+                                                                                                    width="95">
+                                                                                                    제품/성분(한영)</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td id="searchTop2"
+                                                                                                    onclick="showsearch(this.id,'제품명(한영)')"
+                                                                                                    onmouseout="out(this.id)"
+                                                                                                    onmouseover="over(this.id)"
+                                                                                                    style="cursor:hand;"
+                                                                                                    valign="bottom"
+                                                                                                    width="95"> 제품명(한영)
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td id="searchTop3"
+                                                                                                    onclick="showsearch(this.id,'성분명(한영)')"
+                                                                                                    onmouseout="out(this.id)"
+                                                                                                    onmouseover="over(this.id)"
+                                                                                                    style="cursor:hand;"
+                                                                                                    valign="bottom"
+                                                                                                    width="95"> 성분명(한영)
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td id="searchTop4"
+                                                                                                    onclick="showsearch(this.id,'제조/판매사')"
+                                                                                                    onmouseout="out(this.id)"
+                                                                                                    onmouseover="over(this.id)"
+                                                                                                    style="cursor:hand;"
+                                                                                                    valign="bottom"
+                                                                                                    width="95"> 제조/판매사
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td id="searchTop5"
+                                                                                                    onclick="showsearch(this.id,'보험코드')"
+                                                                                                    onmouseout="out(this.id)"
+                                                                                                    onmouseover="over(this.id)"
+                                                                                                    style="cursor:hand;"
+                                                                                                    valign="bottom"
+                                                                                                    width="95"> 보험코드
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td id="searchTop6"
+                                                                                                    onclick="showsearch(this.id,'주성분코드')"
+                                                                                                    onmouseout="out(this.id)"
+                                                                                                    onmouseover="over(this.id)"
+                                                                                                    style="cursor:hand;"
+                                                                                                    valign="bottom"
+                                                                                                    width="95"> 주성분코드
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td id="searchTop7"
+                                                                                                    onclick="showsearch(this.id,'복지부분류코드')"
+                                                                                                    onmouseout="out(this.id)"
+                                                                                                    onmouseover="over(this.id)"
+                                                                                                    style="cursor:hand;"
+                                                                                                    valign="bottom"
+                                                                                                    width="95"> 복지부분류코드
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                    <td style="text-align:right; vertical-align:top;">
+                                                                        <input alt="검색" height="40" src="/img/s_bt.gif"
+                                                                            style="margin-top:1px;" type="image"
+                                                                            width="52" /></td>
+                                                                </tr>
+                                                                <tr height="30" valign="middle">
+                                                                    <td colspan="2" style="vertical-align:middle;"><span
+                                                                            style="font-family:돋움; font-size:11px; color:#8e9295;"><img
+                                                                                align="absmiddle" alt="" height="12"
+                                                                                src="/img/s_icon.gif" width="17" /><a
+                                                                                href="/search/search_main.aspx">약품검색</a>|<a
+                                                                                href="/detail/choi_sub.aspx"
+                                                                                target="_blank">임부투여</a>|<a
+                                                                                href="/p/atc-code-search/"
+                                                                                target="_blank">ATC분류코드</a>|<a
+                                                                                href="/p/indication-search/"
+                                                                                target="_blank">적응증</a>|<a
+                                                                                href="/p/herb-search/"
+                                                                                target="_blank">한약(생약)사진</a>|<a
+                                                                                href="/ingredient/ingre_classify.aspx">약효분류</a></span>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <script type="text/javascript">
+                        document.forms["searchForm"].searchType.value = "searchTop0";
+                        document.all['top_menu'].innerHTML = "신통합검색";
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td height="64">
+                    <script type="text/JavaScript">
+<!-- 메뉴롤오버 아웃에 관한 스트립트..
+    function MM_swapImgRestore() { //v3.0
+        var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+    }
+    function MM_preloadImages() { //v3.0
+        var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+            var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+                if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+    }
+    function MM_findObj(n, d) { //v4.01
+        var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+            d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+        if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+        for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+        if(!x && d.getElementById) x=d.getElementById(n); return x;
+    }
+    function MM_swapImage() { //v3.0
+        var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+            if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+    }
+    MM_preloadImages('/include/images/subNavi_01.jpg','/include/images/subNavi_02.jpg','/include/images/subNavi_03.jpg','/include/images/subNavi_04.jpg','/include/images/subNavi_05.jpg','/include/images/subNavi_06.jpg','/include/images/subNavi_07.jpg','/include/images/subNavi_08.jpg', '/include/images/subNavi_09.jpg', '/include/images/subNavi_10.jpg');
+    var LastMenuDivId = "top0Menu"; 
+    function overTop(id){
+        var tempDivId = id+"Menu";
+        display_Layer(LastMenuDivId,'none');    display_Layer(tempDivId,'block');
+        LastMenuDivId = tempDivId;
+    }
+    //-->
+</script>
+                    <!-- 대메뉴 테이블 시작입니다-->
+                    <table cellpadding="0" cellspacing="0" width="991">
+                        <tr>
+                            <td id="top1" onclick="location.href='/search/search_main.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img1','','/include/images/subNavi_01_over.jpg',1);overTop(this.id);"
+                                style="cursor:hand;"><img alt="약품검색" height="33" id="img1"
+                                    src="/include/images/subNavi_01.jpg" width="113" /></td>
+                            <td id="top2" onclick="location.href='/identy/identy_char.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img2','','/include/images/subNavi_02_over.jpg',1);overTop(this.id);"
+                                style="cursor:hand;"><img alt="제품식별" height="33" id="img2"
+                                    src="/include/images/subNavi_02.jpg" width="112" /></td>
+                            <td id="top3" onclick="location.href='/interaction/inter_searchForm.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img3','','/include/images/subNavi_03_over.jpg',0);overTop(this.id);"
+                                style="cursor:hand;"><img alt="상호작용" height="33" id="img3"
+                                    src="/include/images/subNavi_03.jpg" width="102" /></td>
+                            <td id="top4" onclick="location.href='/ingredient/ingre_search.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img4','','/include/images/subNavi_04_over.jpg',1);overTop(this.id);"
+                                style="cursor:hand;"><img alt="성분정보" height="33" id="img4"
+                                    src="/include/images/subNavi_04.jpg" width="101" /></td>
+                            <td id="top5" onclick="location.href='/patient/patient_form.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img5','','/include/images/subNavi_05_over.jpg',1);overTop(this.id);"
+                                style="cursor:hand;"><img alt="환자복약지도" height="33" id="img5"
+                                    src="/include/images/subNavi_05.jpg" width="126" /></td>
+                            <td id="top6" onclick="location.href='/guide/guide_drug.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img6','','/include/images/subNavi_06_over.jpg',1);overTop(this.id);"
+                                style="cursor:hand;"><img alt="약제비심사지침" height="33" id="img6"
+                                    src="/include/images/subNavi_06.jpg" width="118" /></td>
+                            <td id="top11" onclick="location.href='/actJudge/Body_Act.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img11','','/include/images/subNavi_07_over.jpg',1);overTop(this.id);"
+                                style="cursor:hand;"><img alt="행위관련심사지침" height="33" id="img11"
+                                    src="/include/images/subNavi_07.jpg" width="132" /></td>
+                            <td id="top8" onclick="location.href='/board/board_drug_qna.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img8','','/include/images/subNavi_09_over.jpg',1);overTop(this.id);"
+                                style="cursor:hand;"><img alt="게시판" height="33" id="img8"
+                                    src="/include/images/subNavi_09.jpg" width="94" /></td>
+                            <td id="top9" onclick="location.href='/board/cmnt_all.aspx'"
+                                onmouseout="MM_swapImgRestore();"
+                                onmouseover="MM_swapImage('img9','','/include/images/subNavi_10_over.jpg',1);overTop(this.id);"
+                                style="cursor:hand;"><img alt="커뮤니티" height="33" id="img9"
+                                    src="/include/images/subNavi_10.jpg" width="93" /></td>
+                        </tr>
+                    </table>
+                    <!--냉무-->
+                    <div id="top0Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img1','','/include/images/subNavi_01_over.jpg',1);"
+                        style="display:block;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="10"> </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--약품검색-->
+                    <div id="top1Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img1','','/include/images/subNavi_01_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="21"> </td>
+                                            <td><a class="s_m" href="/search/search_main.aspx">약품상세검색</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/search/search_pharma.aspx">약효분류별 Pharmacology</a>
+                                            </td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m"
+                                                    href="/search/search_company.aspx?page=1&amp;start=가&amp;end=나">제조.판매사
+                                                    인덱스</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m"
+                                                    href="/search/search_import.aspx?page1=1&amp;page2=1&amp;start=가&amp;end=나">수입의약품
+                                                    리스트</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/search/search_rare.aspx?page1=1&amp;page2=1">희귀의약품
+                                                    리스트</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m"
+                                                    href="/search/search_mental.aspx?page1=1&amp;page2=1">향정의약품 리스트</a>
+                                            </td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m"
+                                                    href="/search/search_narcoti.aspx?page1=1&amp;page2=1">한외.마약 리스트</a>
+                                            </td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m"
+                                                    href="/search/search_abuse.aspx?page1=1&amp;page2=1">오남용우려의약품</a>
+                                            </td>
+                                            <td> </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--제품식별-->
+                    <div id="top2Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img2','','/include/images/subNavi_02_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="133"> </td>
+                                            <td><a class="s_m" href="/identy/identy_char.aspx">문자.그림식별.제형.모양.색상식별</a>
+                                            </td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/identy/report/" target="_blank">약품식별결과보고서</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--상호작용-->
+                    <div id="top3Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img3','','/include/images/subNavi_03_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="242"> </td>
+                                            <td><a class="s_m" href="/interaction/inter_searchForm.aspx">상호작용</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m"
+                                                    href="https://www.druginfo.co.kr/p/contra-product-search/"
+                                                    target="_blank">병용금기고시</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--성분정보-->
+                    <div id="top4Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img4','','/include/images/subNavi_04_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="342"> </td>
+                                            <td><a class="s_m" href="/ingredient/ingre_search.aspx">성분검색</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/ingredient/ingre_classify.aspx">약효분류별 성분 인덱스</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--환자복약지도-->
+                    <div id="top5Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img5','','/include/images/subNavi_05_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="335"> </td>
+                                            <td><a class="s_m" href="/patient/patient_form.aspx">제형별복약지도</a></td>
+                                            <td> </td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/patient/patient_pro.aspx">제품별복약지도</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/patient/patient_disease.aspx">질환별복약지도</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/patient/patient_out_summary_form.aspx"
+                                                    target="_blank">종합복약안내문</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="https://nedrug.mfds.go.kr/bbs/12"
+                                                    target="_blank">약과 음식의 궁합</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="https://nedrug.mfds.go.kr/bbs/13"
+                                                    target="_blank">약과 건강식품의 궁합</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--약제비심사지침-->
+                    <div id="top6Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img6','','/include/images/subNavi_06_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="470"> </td>
+                                            <td><a class="s_m" href="/guide/guide_drug.aspx">제품별검색</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m"
+                                                    href="http://www.druginfo.co.kr/kcd/kcd_main.aspx?searchType=1"
+                                                    target="_blank">의약품별인정 상병코드</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/guide/guide_general.aspx">심사지침 일반원칙</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/guide/guide_hw.aspx">복지부 분류별</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/guide/guide_sick.aspx">상병코드검색</a></td>
+                                            <td> </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--행위관련심사지침-->
+                    <div id="top11Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img11','','/include/images/subNavi_07_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="679"> </td>
+                                            <td><a class="s_m" href="/actJudge/Body_Act.aspx">행위 정의</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/actJudge/Body_Judge.aspx">행위 심사지침</a></td>
+                                            <td> </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--드러그인포몰-->
+                    <div id="top7Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img7','','/include/images/subNavi_08_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="730"> </td>
+                                            <td><a class="s_m" href="/bitindex/bitindex_form.aspx?choice=1">비트인덱스몰</a>
+                                            </td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/bitindex/bitindex_form.aspx?choice=2">파일몰</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/bitindex/bitindex_form.aspx?choice=3">나노셉틱</a>
+                                            </td>
+                                            <td> </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--게시판-->
+                    <div id="top8Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img8','','/include/images/subNavi_09_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="688"> </td>
+                                            <td><a class="s_m" href="http://www.mfds.go.kr/index.do?mid=1034"
+                                                    target="_blank">안전성서한</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/board/board_list.aspx?boardId=1001">의약전문게시판</a>
+                                            </td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/board/board_drug_picture_form.aspx">의약품사진게시판</a>
+                                            </td>
+                                            <td> </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--커뮤니티-->
+                    <div id="top9Menu" onmouseout="MM_swapImgRestore();"
+                        onmouseover="MM_swapImage('img9','','/include/images/subNavi_10_over.jpg',1);"
+                        style="display:none;">
+                        <table cellpadding="0" cellspacing="0" width="991">
+                            <tr>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_left2.gif" width="6" /></td>
+                                <td style="background-image:url(/img/s_m_bg2.gif);">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="692"> </td>
+                                            <td><a class="s_m" href="/board/board_list.aspx?boardId=1001">의약품Q&amp;A</a>
+                                            </td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/board/cmnt_List.aspx?boardId=1003">구인</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/board/cmnt_List.aspx?boardId=1004">구직</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/board/cmnt_List.aspx?boardId=1005">임대/매매</a></td>
+                                            <td class="s_m_icon" width="15"><img alt="" height="11"
+                                                    src="/img/s_m_line.gif" width="2" /></td>
+                                            <td><a class="s_m" href="/board/cmnt_List.aspx?boardId=1001">공지사항</a></td>
+                                            <td> </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="6"><img alt="" height="27" src="/img/s_m_right2.gif" width="6" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <script type="text/javascript">
+                        var originMenuFlag = 1;
+                        overTop('top' + originMenuFlag);
+                        MM_swapImage('img' + originMenuFlag, '', '/img/ss_m_over' + originMenuFlag + '.gif', 1);
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td height="15"></td>
+            </tr>
+            <tr>
+                <td height="14">
+                    <table border="0" cellpadding="0" cellspacing="0" width="991">
+                        <tr>
+                            <td width="6"> </td>
+                            <td style="vertical-align:top;" width="170">
+                                <table border="0" cellpadding="0" cellspacing="0" width="170">
+                                    <tr>
+                                        <td>
+                                            <script
+                                                src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js"></script>
+                                            <!-- ##################  로그인 하기기전 테이블 시작입니다  ################-->
+                                            <form action="/login/login.aspx" method="post" name="loginForm"
+                                                onsubmit="return false;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="170">
+                                                    <tr>
+                                                        <td height="6"><img alt="top" height="6"
+                                                                src="/img/s_login_top.gif" width="170" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center"
+                                                            style="background-image:url(/img/s_login_bg.gif);">
+                                                            <table border="0" cellpadding="0" cellspacing="0"
+                                                                width="158">
+                                                                <tr>
+                                                                    <td height="8"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="text-align:center;">
+                                                                        <table border="0" cellpadding="0"
+                                                                            cellspacing="0" width="151">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <table border="0" cellpadding="0"
+                                                                                        cellspacing="0" width="151">
+                                                                                        <tr>
+                                                                                            <td><label><input
+                                                                                                        autocomplete="off"
+                                                                                                        class="s_login"
+                                                                                                        name="id"
+                                                                                                        onfocus="chkReset(this.form,0);openDrag();"
+                                                                                                        onfocusout="closeDrag();"
+                                                                                                        size="14"
+                                                                                                        style="width:94px;background-image:url(/login/img/loginbox_id.gif);background-repeat:no-repeat; height:18px; background-color:#ffffff; color:#000000; font-size:12px; border: 1px solid #cacaca; "
+                                                                                                        tabindex="5"
+                                                                                                        type="text" /></label>
+                                                                                            </td>
+                                                                                            <td rowspan="2" width="50">
+                                                                                                <input alt="로그인"
+                                                                                                    height="41"
+                                                                                                    onclick="JavaScript:submit_login_loginForm();"
+                                                                                                    src="/img/s_login_login.gif"
+                                                                                                    tabindex="30"
+                                                                                                    type="image"
+                                                                                                    width="50" /></td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td><label>
+                                                                                                    <input
+                                                                                                        class="s_login"
+                                                                                                        name="t_passwd"
+                                                                                                        onfocus="chkReset(this.form,1);openDrag();"
+                                                                                                        onfocusout="closeDrag();"
+                                                                                                        size="19"
+                                                                                                        style="width:94px;background-image:url(/login/img/loginbox_pw.gif);background-repeat:no-repeat; height:18px; background-color:#ffffff; color:#000000; font-size:12px; border: 1px solid #cacaca;"
+                                                                                                        tabindex="6"
+                                                                                                        type="password" />
+                                                                                                    <input name="passwd"
+                                                                                                        type="hidden">
+                                                                                                    </input></label>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td height="6"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <table border="0" cellpadding="0"
+                                                                                        cellspacing="0">
+                                                                                        <tr>
+                                                                                            <td width="10"><input
+                                                                                                    name="checksaveid"
+                                                                                                    onclick="saveid(this.form)"
+                                                                                                    type="checkbox" />
+                                                                                            </td>
+                                                                                            <td style="padding-top:2px;"
+                                                                                                width="60"><span
+                                                                                                    class="id_t">아이디저장</span>
+                                                                                            </td>
+                                                                                            <td width="10"><input
+                                                                                                    name="security"
+                                                                                                    onclick="securityfn(this.form)"
+                                                                                                    type="checkbox" />
+                                                                                            </td>
+                                                                                            <td
+                                                                                                style="padding-top:2px;">
+                                                                                                <span
+                                                                                                    class="id_t">보안접속</span>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td height="14"><img alt="line" height="2"
+                                                                            src="/img/s_login_line.gif" width="158" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="text-align:center;"><a
+                                                                            href="/join/members_before.aspx"><img
+                                                                                alt="회원가입" height="19"
+                                                                                src="/img/s_login_join.gif"
+                                                                                width="50" /></a> <a
+                                                                            href="/join2/forget_sendForm.aspx"><img
+                                                                                alt="아이디비밀번호찾기" height="19"
+                                                                                src="/img/s_login_ids.gif"
+                                                                                width="102" /></a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="text-align:center;"><a
+                                                                            href="/board/cmnt_Read.aspx?boardId=1011&amp;articleId=20993&amp;articleNum=41&amp;startNum=0&amp;maxNum=-1&amp;requestPage=1&amp;fileId=&amp;"><img
+                                                                                alt="로긴문제" height="19"
+                                                                                src="/img/m_qu_bt.gif" width="70" /></a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="4"><img alt="bottom" height="4"
+                                                                src="/img/s_login_bottom.gif" width="170" /></td>
+                                                    </tr>
+                                                    <!--시간-->
+                                                    <input name="timestamp" size="15" type="hidden" value="2024032612">
+                                                    <!--IP-->
+                                                    <input name="ip" size="15" type="hidden" value="1.209.31.163">
+                                                    </input></input>
+                                                </table>
+                                            </form>
+                                            <!-- ##################  로그인한후 테이블 시작입니다  #################-->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="16"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="170">
+                                                <tr>
+                                                    <td><img alt="약품검색" height="49" src="../img/medi_leftm_title.gif"
+                                                            width="170" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="background-image:url(../img/medi_leftm_bg.gif); padding-left:5px;">
+                                                        <!-- 1번째 메뉴 테이블 시작입니다.-->
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="160">
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a href="/search/search_main.aspx">약품상세검색</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a href="/search/search_pharma.aspx"
+                                                                        onclick="return Chk_Auth(78, 0, 0);">약효분류별
+                                                                        Pharmacology</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a
+                                                                        href="/search/search_company.aspx?page=1&amp;start=가&amp;end=나">제조.판매사
+                                                                        인덱스</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a
+                                                                        href="/search/search_import.aspx?page1=1&amp;page2=1&amp;start=가&amp;end=나">수입의약품
+                                                                        리스트</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a
+                                                                        href="/search/search_rare.aspx?page1=1&amp;page2=1">희귀의약품
+                                                                        리스트</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a
+                                                                        href="/search/search_mental.aspx?page1=1&amp;page2=1">향정의약품
+                                                                        리스트</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a
+                                                                        href="/search/search_narcoti.aspx?page1=1&amp;page2=1">한외.마약
+                                                                        리스트</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                            <!--        
+	<tr>
+            <td class="m" onmouseout="this.className='m'" onmouseover="this.className='m_over'">
+                <a href="Javascript:alert('페이지 수정중입니다.')">향정의약품 리스트</a>
+            </td>
+        </tr>
+        <tr><td class="line"></td></tr>
+        
+        <tr>
+            <td class="m" onmouseout="this.className='m'" onmouseover="this.className='m_over'">
+                <a href="Javascript:alert('페이지 수정중입니다.')">한외.마약 리스트</a>
+            </td>
+        </tr>
+        <tr><td class="line"></td></tr>
+-->
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a
+                                                                        href="/search/search_abuse.aspx?page1=1&amp;page2=1">오남용우려의약품</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'">
+                                                                    <a href="/etc/search_list.aspx">약품검색순위</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                        </table>
+                                                        <!-- 1번째 메뉴 테이블 끝입니다.-->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img alt="bottom" height="26" src="../img/medi_leftm_bottom.gif"
+                                                            width="170" /></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="16"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><!-- 2011년 12월 31일자로 신한카드 제휴 만료 로 인한 삭제 [영]-->
+                                            <!--<table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr><td><img src="/about/img/card_leftm_title.gif" alt="드러그인포제휴카드" width="170" height="49" /></td></tr>
+<tr>
+    <td style="background-image:url(/img/medi_leftm_bg.gif); padding-left:5px;">
+        <table width="160" border="0" cellspacing="0" cellpadding="0">
+        <tr><td class="m" onmouseout="this.className='m'" onmouseover="this.className='m_over'"><a href="/about/card.aspx">신한카드</a></td></tr>
+        <tr><td class="line"></td></tr>
+        <tr><td class="m" onmouseout="this.className='m'" onmouseover="this.className='m_over'"><a href="/about/드러그인포-신한카드-Q&A.pdf" target="_blank">신한카드 Q&A</a></td></tr>
+        <tr><td class="line"></td></tr>	
+        </table>
+    </td>
+</tr>
+<tr><td><img src="/img/medi_leftm_bottom.gif" alt="bottom" width="170" height="26" /></td></tr>
+</table>
+<br />-->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="170">
+                                                <tr>
+                                                    <td><img alt="스마트폰" height="49"
+                                                            src="/about/img/mobile_leftm_title.gif" width="170" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="background-image:url(/img/medi_leftm_bg.gif); padding-left:5px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="160">
+                                                            <tr>
+                                                                <td class="m" onmouseout="this.className='m'"
+                                                                    onmouseover="this.className='m_over'"><a
+                                                                        href="/about/mobile.aspx">드럭인포 모바일</a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="line"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img alt="bottom" height="26" src="/img/medi_leftm_bottom.gif"
+                                                            width="170" /></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="16"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="20"> </td>
+                            <td style="vertical-align:top;" width="789">
+                                <table border="0" cellpadding="0" cellspacing="0" width="789">
+                                    <tr>
+                                        <td height="46"
+                                            style="background-image:url(/img/medi_c_t1.gif); background-repeat:no-repeat;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="789">
+                                                <tr>
+                                                    <td> </td>
+                                                    <td height="22" width="13"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="right">
+                                                        <table border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td width="13"><img align="absmiddle" alt="icon1"
+                                                                        height="13" src="/img/s_history_icon1.gif"
+                                                                        width="13" /></td>
+                                                                <td style="text-align:center;" width="15"><img
+                                                                        align="absmiddle" alt="icon2" height="5"
+                                                                        src="/img/s_history_icon2.gif" width="3" /></td>
+                                                                <td class="hi">약품상세검색</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td> </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="17"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="menu-bar">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td class="tabspace" colspan="14" height="4"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="tab" width="4"><img height="1" width="1" /></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/search.aspx">통합검색</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/products.aspx">제품</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/qna.aspx">Q&amp;A</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/news.aspx">건강뉴스</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/dailynews.aspx">의약뉴스</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/blog.aspx">블로그</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/cafe.aspx">카페</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/doc.aspx">전문정보</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/web.aspx">웹문서</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/directions.aspx">복약지도</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/guides.aspx">심사지침</a></td>
+                                                        <td class="tab"><a class="main-menu-link"
+                                                                href="/search2/effects.aspx">효능효과</a></td>
+                                                        <td class="tab" width="4"><img height="1" width="1" /></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="17"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="main">
+                                                <!-- 파워링크 -->
+                                                <div id="sponsor-link-container" style="display:none;">
+                                                    <div class="subheader">
+                                                        <h2>스폰서링크</h2>
+                                                    </div>
+                                                    <div id="sponsor-link-main"></div>
+                                                    <div class="subfooter"></div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    (function () { var c = [{ bannerImage: "ad/banner/ahn-gook.jpg", keywords: ["안국", "레보텐션"], title: "안국약품 홈페이지", url: "http://www.ahn-gook.com" }]; var a = " sorafenib"; var b = document.getElementById("sponsor-link-container"); var g = document.getElementById("sponsor-link-main"); outer: for (var e = 0; e < c.length; e++) { var l = c[e]; var f = l.keywords; for (var d = 0; d < f.length; d++) { if (a.indexOf(f[d]) != -1) { var k = document.createElement("a"); k.href = l.url; k.title = l.title; k.target = "_blank"; var h = document.createElement("img"); h.src = l.bannerImage; k.appendChild(h); g.appendChild(k); b.style.display = "block"; break outer } } } })();
+                                                </script>
+                                                <!-- 스폰서링크 -->
+                                                <div id="power-link-container" style="display:none;">
+                                                    <div class="subheader">
+                                                        <h2>파워링크</h2>
+                                                    </div>
+                                                    <div id="power-link-main">
+                                                        <ul class="ad-list" id="power-link-list"></ul>
+                                                    </div>
+                                                    <div class="subfooter"></div>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    (function () { var c = [{ keywords: ["안국", "레보테놀", "고혈압"], title: "레보테놀정12.5mg", url: "http://kurtlee.windowstest.net/goods_01/view.asp?page=1&goods_idx=33", description: "기존 Atenolol제제의 절반의 용량으로도 동등이상의 혈압강하효과를 나타내는 S-Atenolol제제.", sponsorInfo: { name: "안국약품", url: "http://www.ahn-gook.com" } }, { keywords: ["안국", "레보테놀", "고혈압"], title: "레보테놀정25mg", url: "http://kurtlee.windowstest.net/goods_01/view.asp?page=1&goods_idx=34", description: "기존 Atenolol제제의 절반의 용량으로도 동등이상의 혈압강하효과를 나타내는 S-Atenolol제제.", sponsorInfo: { name: "안국약품", url: "http://www.ahn-gook.com" } }, { keywords: ["안국", "레보텐션", "고혈압"], title: "레보테션정25mg", url: "http://kurtlee.windowstest.net/goods_01/view.asp?page=1&goods_idx=35", description: "기존 Amlodipine의 1/2 용량으로 동등이상의 혈압강하 효과, 부종등 부작용 98.72% 감소효과.", sponsorInfo: { name: "안국약품", url: "http://www.ahn-gook.com" } }, { keywords: ["안국", "로자스타", "고혈압"], title: "로자스타정", url: "http://kurtlee.windowstest.net/goods_01/view.asp?page=1&goods_idx=180", description: "안지오텐신 II 길항작용의 신장보호 효과가 뛰어난 고혈압치료제.", sponsorInfo: { name: "안국약품", url: "http://www.ahn-gook.com" } }, { keywords: ["안국", "카르베딜롤", "고혈압"], title: "안국카르베딜롤정", url: "http://kurtlee.windowstest.net/goods_01/view.asp?page=1&goods_idx=23", description: "α1과 β 수용체 동시 차단으로 각 단일 제제의 부작용 경감시키고, 혈압 강하가 우수한 고혈압, 협심증 치료제.", sponsorInfo: { name: "안국약품", url: "http://www.ahn-gook.com" } }, { keywords: ["안국", "페로텐", "고혈압"], title: "페로텐 지속정", url: "http://kurtlee.windowstest.net/goods_01/view.asp?page=1&goods_idx=64", description: "혈관경련성 협심증을 가진 환자에서 심근으로의 산소 운반량을 증가 시키는 칼슘채널길항제.", sponsorInfo: { name: "안국약품", url: "http://www.ahn-gook.com" } }]; var b = " sorafenib"; var m = document.getElementById("power-link-container"); var g = document.getElementById("power-link-list"); var d = 0; for (var k = 0; k < c.length; k++) { var e = c[k]; var l = e.keywords; for (var h = 0; h < l.length; h++) { if (b.indexOf(l[h]) != -1) { var a = document.createElement("li"); var o = document.createElement("a"); var p = document.createElement("span"); var f = document.createElement("div"); var n = document.createElement("a"); o.className = "ad-title"; o.href = e.url; o.title = e.title; o.target = "_blank"; o.appendChild(document.createTextNode(e.title)); p.className = "ad-description"; p.appendChild(document.createTextNode(" - " + e.description)); f.className = "ad-url"; n.href = e.sponsorInfo.url; n.target = "_blank"; n.title = e.sponsorInfo.name; n.appendChild(document.createTextNode(e.sponsorInfo.url)); f.appendChild(n); a.appendChild(o); a.appendChild(p); a.appendChild(f); g.appendChild(a); d++; break } } } if (d > 0) { m.style.display = "block" } })();
+                                                </script>
+                                                <!-- 추천키워드 0 -->
+                                                <div class="subheader">
+                                                    <h2>성분 <span class="scount">2개 중 1 - 2</span></h2>
+                                                </div>
+                                                <div class="res table-res">
+                                                    <table>
+                                                        <tr>
+                                                            <td align="left" class="header-cell">영문 성분명</td>
+                                                            <td align="left" class="header-cell">한글 성분명</td>
+                                                            <td class="header-cell">제품 리스트</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left" class="table-cell"><a
+                                                                    href="/ingredient/ingre_view.aspx?ingPid=6182&amp;ingPid_List=6182"><em>Sorafenib</em></a>
+                                                            </td>
+                                                            <td align="left" class="table-cell"><a
+                                                                    href="/ingredient/ingre_view.aspx?ingPid=6182&amp;ingPid_List=6182">소라페닙</a>
+                                                            </td>
+                                                            <td align="center" class="table-cell"><a
+                                                                    href="/ingredient/ingre_productList.aspx?ingPid=6182">조회</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left" class="table-cell"><a
+                                                                    href="/ingredient/ingre_view.aspx?ingPid=6183&amp;ingPid_List=6183"><em>Sorafenib</em>
+                                                                    tosylate</a></td>
+                                                            <td align="left" class="table-cell"><a
+                                                                    href="/ingredient/ingre_view.aspx?ingPid=6183&amp;ingPid_List=6183">소라페닙토실레이트</a>
+                                                            </td>
+                                                            <td align="center" class="table-cell"><a
+                                                                    href="/ingredient/ingre_productList.aspx?ingPid=6183">조회</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="subfooter">
+                                                </div>
+                                                <div class="subheader">
+                                                    <h2><span class="green-font">유통중인 제품</span> <span class="scount">2개
+                                                            중 1 - 2</span></h2>
+                                                </div>
+                                                <div class="res table-res">
+                                                    <div class="table-res-action">
+                                                    </div>
+                                                    <table>
+                                                        <tr>
+                                                            <td class="header-cell"></td>
+                                                            <td class="header-cell">제품명</td>
+                                                            <td class="header-cell">임부</td>
+                                                            <td class="header-cell">보험코드</td>
+                                                            <td class="header-cell">판매사</td>
+                                                            <td class="header-cell">성분/함량</td>
+                                                            <td class="header-cell">구분</td>
+                                                            <td class="header-cell">보험</td>
+                                                            <td class="header-cell">약가</td>
+                                                            <td class="header-cell">조회수</td>
+                                                            <td class="header-cell">대체</td>
+                                                            <td class="header-cell">수정</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-cell" width="45">
+                                                                <a class="pro-img-link" rel="lightbox"
+                                                                    style="display:none;"
+                                                                    title="소라닙정200mg(소라페닙토실레이트(미분화))">247624,247624.jpg</a>
+                                                            </td>
+                                                            <td class="table-cell" width="150">
+                                                                <a class="product-link preview-product"
+                                                                    href="/detail/product.aspx?pid=247624"
+                                                                    id="247624">소라닙정200mg(소라페닙토실레이트(미분화))</a>
+                                                            </td>
+                                                            <td align="center" class="table-cell"
+                                                                id="preview-pos-247624">
+                                                                <img height="19" src="/search2/images/D.gif"
+                                                                    width="20" />
+                                                            </td>
+                                                            <td class="table-cell">643508320</td>
+                                                            <td class="table-cell" width="115">
+                                                                <img alt="6d6acba3e7d34f60925bd12ba1ff4869.JPG"
+                                                                    class="pd-image" src="" style="display:none" />
+                                                                <a href="/detail/company.aspx?pid=290">한미약품(주)</a>
+                                                            </td>
+                                                            <td class="table-cell" width="135"><em>Sorafenib</em>
+                                                                tosylate 274mg</td>
+                                                            <td align="center" class="table-cell">
+                                                                전문
+                                                            </td>
+                                                            <td align="right" class="table-cell">급여</td>
+                                                            <td align="right" class="table-cell">8,945원</td>
+                                                            <td align="center" class="table-cell">
+                                                                <span class="red-font">유료</span>
+                                                            </td>
+                                                            <td class="table-cell"><a
+                                                                    href="/detail/list_substi.aspx?pid=247624">조회</a>
+                                                            </td>
+                                                            <td class="table-cell"><a
+                                                                    href="/Inquiry/Inquiry_InsertForm.aspx?section=0&amp;title=소라닙정200mg(소라페닙토실레이트(미분화))">요청</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-cell" width="45">
+                                                                <a class="pro-img-link" rel="lightbox"
+                                                                    style="display:none;"
+                                                                    title="넥사바정200mg(소라페닙토실레이트(미분화))">51673,51673_1.jpg</a>
+                                                            </td>
+                                                            <td class="table-cell" width="150">
+                                                                <a class="product-link preview-product"
+                                                                    href="/detail/product.aspx?pid=51673"
+                                                                    id="51673">넥사바정200mg(소라페닙토실레이트(미분화))</a>
+                                                            </td>
+                                                            <td align="center" class="table-cell"
+                                                                id="preview-pos-51673">
+                                                                <img height="19" src="/search2/images/D.gif"
+                                                                    width="20" />
+                                                            </td>
+                                                            <td class="table-cell">641104700</td>
+                                                            <td class="table-cell" width="115">
+                                                                <img alt="79eb2e76709c43da83d8651f0adf201c.JPG"
+                                                                    class="pd-image" src="" style="display:none" />
+                                                                <a href="/detail/company.aspx?pid=86">바이엘코리아(주)</a>
+                                                            </td>
+                                                            <td class="table-cell" width="135"><em>Sorafenib</em>
+                                                                tosylate 274mg</td>
+                                                            <td align="center" class="table-cell">
+                                                                전문
+                                                            </td>
+                                                            <td align="right" class="table-cell">급여</td>
+                                                            <td align="right" class="table-cell">9,939원</td>
+                                                            <td align="center" class="table-cell">
+                                                                <span class="red-font">유료</span>
+                                                            </td>
+                                                            <td class="table-cell"><a
+                                                                    href="/detail/list_substi.aspx?pid=51673">조회</a>
+                                                            </td>
+                                                            <td class="table-cell"><a
+                                                                    href="/Inquiry/Inquiry_InsertForm.aspx?section=0&amp;title=넥사바정200mg(소라페닙토실레이트(미분화))">요청</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="subfooter">
+                                                </div>
+                                                <div id="loader"><img height="16" src="images/progress.gif"
+                                                        width="16" /> 로드 중...</div>
+                                                <div id="res-ajax-search" style="display:none;">
+                                                    <div id="res-others"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="17"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <form action="" method="get" name="f">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td valign="top">
+                                                            <table border="0" cellpaddding="0" cellspacing="5"
+                                                                style="background-color:#0772E0;" width="350">
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" style="padding:3px">
+                                                                        <input name="q" size="30"
+                                                                            style="border:none;color:#000000;font-family:돋움;font-size:14px;font-weight:bold;vertical-align:top;"
+                                                                            type="text" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td width="10"> </td>
+                                                        <td valign="top">
+                                                            <input alt="검색" height="36" src="/img/s_bt.gif" type="image"
+                                                                width="52" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td height="20"></td>
+            </tr>
+            <tr>
+                <td height="105">
+                    <script language="JavaScript" type="text/javascript">
+                        function familysite(url) {
+                            var mUrl = url
+                            if (mUrl != "#")
+                                window.open([mUrl], 'new')
+                        }
+                    </script>
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td height="28" style="background-image:url(/img/copy_bg.gif); text-align:center;">
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td><a href="/about/about.aspx">About us</a> |</td>
+                                        <!--<td><a href="mailto:druginfo@bit.co.kr">&nbsp;Contact us</a> |</td>-->
+                                        <td><a href="/mypage/question_insertForm.aspx"> Contact us</a> |</td>
+                                        <td><a href="/board/cmnt_list.aspx?boardid=1011"> FAQ</a> |</td>
+                                        <td><a href="/about/service.aspx"> Service 안내</a> |</td>
+                                        <td><a href="/about/advertise.aspx"> 광고 및 제휴안내</a> |</td>
+                                        <td><a href="/about/privacy.aspx"> <b> 개인정보취급방침</b></a> |</td>
+                                        <td><a href="/about/duty.aspx"><b> 책임의 한계 및 법적고지</b></a> |</td>
+                                        <td><a href="/about/sitemap.aspx"> SiteMap</a> |</td>
+                                        <td><a href="http://988.co.kr" target="_blank"> 고객지원</a></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="77" style="text-align:center; vertical-align:middle;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="770">
+                                    <tr>
+                                        <td width="535"><img alt="" height="44" src="/img/copyright.gif" width="700" />
+                                        </td>
+                                        <td style="text-align:center; vertical-align:middle;" width="174">
+                                            <select name="familysite" onchange="javascript:familysite(this.value)"
+                                                style="font-family:돋움; font-size:11;">
+                                                <option selected="" value="#"> ::: Family Site ::: </option>
+                                                <option value="http://www.bit.kr">비트컴퓨터</option>
+                                                <option value="http://www.chohyunjung.org">조현정재단</option>
+                                                <option value="http://www.drbit.co.kr">닥터비트</option>
+                                                <option value="http://www.medigent.kr">메디전트</option>
+                                                <option value="http://www.dreamcare.co.kr">드림케어</option>
+                                                <option value="http://www.bitcampus.com">비트캠퍼스</option>
+                                                <option value="http://www.bitacademy.com">비트아카데미</option>
+                                                <option value="http://www.bitclub.co.kr">비트클럽</option>
+                                            </select>
+                                        </td>
+                                        <td><img alt="" height="50" src="/img/c_img.gif" width="61" /></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+
+    </html>
+    <script src="scripts/lib/mootools-1.2.3-core-more.js" type="text/javascript"></script>
+    <script src="scripts/lib/slimbox.js" type="text/javascript"></script>
+    <script src="scripts/di-search2-0.0.10.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        g_currentRequestPath = '/search2/search.aspx';
+        g_searchQuery.queryString = " sorafenib";
+        g_searchQuery.sortBy = '';
+        g_searchCount = 0;
+        g_validSearchCount = 4 > 0 ? 1 : 0;
+        g_needAjaxSearch = true; 
+    </script>
+</body>
